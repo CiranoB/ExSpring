@@ -31,6 +31,14 @@ public class UserLogin {
 		return senha;
 	}
 
+	public UserLogin(String nome, String usuario, String senha, String token) {
+		super();
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.token = token;
+	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
