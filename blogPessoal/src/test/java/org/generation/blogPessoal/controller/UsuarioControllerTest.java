@@ -61,7 +61,7 @@ public class UsuarioControllerTest {
 		 * Cria um objeto da Classe Usuario e insere dentro de um Objeto da Classe HttpEntity (Entidade HTTP)
 		 */
 		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(new Usuario(0L, 
-			"Paulo Antunes", "paulo_antunes@email.com.br", "13465278", "https://i.imgur.com/JR7kUFU.jpg", "teste"));
+			"Paulo Antunes", "paulo_antunes@email.com.br", "13465278", "https://i.imgur.com/JR7kUFU.jpg"));
 
 		/**
 		 * Cria um Objeto da Classe ResponseEntity (corpoResposta), que receberá a Resposta da Requisição que será 
@@ -102,15 +102,15 @@ public class UsuarioControllerTest {
 		/**
 		 * Persiste um objeto da Classe Usuario no Banco de dados através do Objeto da Classe UsuarioService
 		 */
-		usuarioService.CadastrarUsuario(new Usuario(0L, 
-			"Maria da Silva", "maria_silva@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg", "teste"));
+		usuarioService.cadastrarUsuario(new Usuario(0L, 
+			"Maria da Silva", "maria_silva@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg"));
 
 		/**
 		 * Cria o mesmo objeto da Classe Usuario que foi persistido no Banco de dados na linha anterior para
 		 * simular uma duplicação de usuário e insere dentro de um Objeto da Classe HttpEntity (Entidade HTTP)
 		 */
 		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(new Usuario(0L, 
-			"Maria da Silva", "maria_silva@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg", "teste"));
+			"Maria da Silva", "maria_silva@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg"));
 
 		/**
 		 * Cria um Objeto da Classe ResponseEntity (corpoResposta), que receberá a Resposta da Requisição que será 
@@ -142,8 +142,8 @@ public class UsuarioControllerTest {
 		 * O Objeto usuarioCadastrado será do tipo Optional porquê caso o usuário não seja persistido no Banco 
 		 * de dados, o Optional evitará o erro NullPointerException (Objeto Nulo).
 		 */
-		Optional<Usuario> usuarioCadastrado = usuarioService.CadastrarUsuario(new Usuario(0L, 
-			"Juliana Andrews", "juliana_andrews@email.com.br", "juliana123", "https://i.imgur.com/yDRVeK7.jpg", "teste"));
+		Optional<Usuario> usuarioCadastrado = usuarioService.cadastrarUsuario(new Usuario(0L, 
+			"Juliana Andrews", "juliana_andrews@email.com.br", "juliana123", "https://i.imgur.com/yDRVeK7.jpg"));
 		/**
 		 *  Cria um Objeto da Classe Usuário contendo os dados do Objeto usuarioCadastrado, que foi persistido na
 		 *  linha anterior, alterando os Atributos Nome e Usuário (Atualização dos Atributos). 
@@ -151,7 +151,7 @@ public class UsuarioControllerTest {
 		 * Observe que para obter o Id de forma automática, foi utilizado o método getId() do Objeto usuarioCadastrado.
 		 */
 		Usuario usuarioUpdate = new Usuario(usuarioCadastrado.get().getId(), 
-			"Juliana Andrews Ramos", "juliana_ramos@email.com.br", "juliana123" , "https://i.imgur.com/yDRVeK7.jpg", "teste");
+			"Juliana Andrews Ramos", "juliana_ramos@email.com.br", "juliana123" , "https://i.imgur.com/yDRVeK7.jpg");
 		
 		/**
 		 * Insere o objeto da Classe Usuario (usuarioUpdate) dentro de um Objeto da Classe HttpEntity (Entidade HTTP)
@@ -204,11 +204,11 @@ public class UsuarioControllerTest {
 		/**
 		 * Persiste dois objetos diferentes da Classe Usuario no Banco de dados através do Objeto da Classe UsuarioService
 		 */
-		usuarioService.CadastrarUsuario(new Usuario(0L, 
-			"Sabrina Sanches", "sabrina_sanches@email.com.br", "sabrina123", "https://i.imgur.com/5M2p5Wb.jpg", "teste"));
+		usuarioService.cadastrarUsuario(new Usuario(0L, 
+			"Sabrina Sanches", "sabrina_sanches@email.com.br", "sabrina123", "https://i.imgur.com/5M2p5Wb.jpg"));
 		
-		usuarioService.CadastrarUsuario(new Usuario(0L, 
-			"Ricardo Marques", "ricardo_marques@email.com.br", "ricardo123", "https://i.imgur.com/Sk5SjWE.jpg", "teste"));
+		usuarioService.cadastrarUsuario(new Usuario(0L, 
+			"Ricardo Marques", "ricardo_marques@email.com.br", "ricardo123", "https://i.imgur.com/Sk5SjWE.jpg"));
 
 		/**
 		 * Cria um Objeto da Classe ResponseEntity (corpoResposta), que receberá a Resposta da Requisição que será 
@@ -250,8 +250,8 @@ public class UsuarioControllerTest {
 		 * O Objeto usuarioCadastrado será do tipo Optional porquê caso o usuário não seja persistido no Banco 
 		 * de dados, o Optional evitará o erro NullPointerException (Objeto Nulo).
 		 */
-		Optional<Usuario> usuarioBusca = usuarioService.CadastrarUsuario(new Usuario(0L, 
-				"Laura Santolia", "laura_santolia@email.com.br", "laura12345", "https://i.imgur.com/EcJG8kB.jpg", "teste"));
+		Optional<Usuario> usuarioBusca = usuarioService.cadastrarUsuario(new Usuario(0L, 
+				"Laura Santolia", "laura_santolia@email.com.br", "laura12345", "https://i.imgur.com/EcJG8kB.jpg"));
 			
 		/**
 		 * Cria um Objeto da Classe ResponseEntity (corpoResposta), que receberá a Resposta da Requisição que será 
@@ -290,8 +290,8 @@ public class UsuarioControllerTest {
 		 * Persiste um objeto da Classe Usuario no Banco de dados através do Método cadastrarUsuario
 		 * da Classe UsuarioService
 		 */
-		usuarioService.CadastrarUsuario(new Usuario(0L, 
-			"Marisa Souza", "marisa_souza@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg", "teste"));
+		usuarioService.cadastrarUsuario(new Usuario(0L, 
+			"Marisa Souza", "marisa_souza@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg"));
 
 		/**
 		 * Cria um Objeto da Classe UsuarioLogin dentro de um Objeto da Classe HttpEntity (Entidade HTTP).

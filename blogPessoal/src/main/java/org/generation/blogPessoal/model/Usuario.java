@@ -27,9 +27,6 @@ public class Usuario {
 	@Size(min =2, max =100)
 	private String nome;
 	
-	private String email;
-	
-
 	@NotNull
 	@Size(min =5, max =100)
 	private String usuario;
@@ -48,13 +45,12 @@ public class Usuario {
 	
 	
 	
-	public Usuario(long id, @NotNull @Size(min = 2, max = 100) String nome, String email,
+	public Usuario(long id, @NotNull @Size(min = 2, max = 100) String nome,
 			@NotNull @Size(min = 5, max = 100) String usuario, String foto,
 			@NotNull @Size(min = 5, max = 100) String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.email = email;
 		this.usuario = usuario;
 		this.foto = foto;
 		this.senha = senha;
@@ -81,14 +77,6 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	
 	public String getUsuario() {
