@@ -14,6 +14,8 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Entity
 @Table(name="tb_usuario")
 public class Usuario {
@@ -27,6 +29,7 @@ public class Usuario {
 	@Size(min =2, max =100)
 	private String nome;
 	
+	@Schema(example = "email@emai.com.br")
 	@NotNull
 	@Size(min =5, max =100)
 	private String usuario;
@@ -48,12 +51,21 @@ public class Usuario {
 	public Usuario(long id, @NotNull @Size(min = 2, max = 100) String nome,
 			@NotNull @Size(min = 5, max = 100) String usuario, String foto,
 			@NotNull @Size(min = 5, max = 100) String senha) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
 		this.foto = foto;
 		this.senha = senha;
+	}
+
+
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
 	}
 
 

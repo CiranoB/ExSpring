@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import org.generation.blogPessoal.model.Tema;
 import org.generation.blogPessoal.model.UserLogin;
 import org.generation.blogPessoal.model.Usuario;
 import org.generation.blogPessoal.repository.UsuarioRepository;
@@ -34,7 +33,7 @@ public class UsuarioController {
 	private UsuarioRepository repository;
 	
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Usuario>> listar(){
 		return ResponseEntity.ok(repository.findAll());
 	}
@@ -48,7 +47,7 @@ public class UsuarioController {
 	
 	
 	@PostMapping("/logar")
-	public ResponseEntity<UserLogin> Autentication (@RequestBody Optional<UserLogin> user){
+	public ResponseEntity<UserLogin> Autentication (@Valid @RequestBody Optional<UserLogin> user){
 		return usuarioService.autenticarUsuario(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
@@ -57,7 +56,7 @@ public class UsuarioController {
 
 	
 	@PutMapping("/atualizar")
-	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> alterar (@RequestBody Usuario usuario) {
 		return usuarioService.atualizarUsuario(usuario)
 			.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
 			.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());

@@ -291,14 +291,14 @@ public class UsuarioControllerTest {
 		 * da Classe UsuarioService
 		 */
 		usuarioService.cadastrarUsuario(new Usuario(0L, 
-			"Marisa Souza", "marisa_souza@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg"));
+			"Marisa Souza", "marisa_souza@email.com.br", "https://i.imgur.com/T12NIp9.jpg","13465278"));
 
 		/**
 		 * Cria um Objeto da Classe UsuarioLogin dentro de um Objeto da Classe HttpEntity (Entidade HTTP).
 		 * O Objeto desta Classe será preenchido apenas como o usuário e senha do usuário criado acima.
 		 */
-		HttpEntity<UserLogin> corpoRequisicao = new HttpEntity<UserLogin>(new UserLogin(
-			"Teste Teste", "marisa_souza@email.com.br", "13465278", ""));
+		HttpEntity<UserLogin> corpoRequisicao = new HttpEntity<UserLogin>(new UserLogin(0L, 
+				"", "marisa_souza@email.com.br", "13465278", "", ""));
 
 		/**
 		 * Cria um Objeto da Classe ResponseEntity (corpoResposta), que receberá a Resposta da Requisição que será 
